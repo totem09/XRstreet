@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-language" content="en-EN" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>XRstreet</title>
+
+
+  <style type='text/css'>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    #handTrackerCanvas {
+      z-index: 1;
+    }
+
+    #ARCanvas {
+      z-index: 4;
+      opacity: 1;
+    }
+
+    .flipButton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+    }
+
+    main {
+      width: 100vw;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    main * {
+      margin: 0px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      color: black;
+      font-weight: bold;
+    }
+
+    main p {
+      max-width: 80vw;
+    }
+
+    main img {
+      margin: 5px;
+    }
+
+    #canvases .over {
+      width: calc(100vw - 30px);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding: 10px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .over * {
+      margin: 0;
+      color: white;
+      background-color: black;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <a href="https://xstreet.io">
+      <h1>XSTREET</h1>
+    </a>
+    <a href="tg://resolve?domain=step_3d_bot">
+      <h2>STEP_3D</h2>
+    </a>
+    <img src="load.gif" alt="loading..." height="64px">
+
+    <p>Разрешите использование камеры и наведите телефон на ноги<br>
+      Нужно немного подождать</p>
+  </main>
+
+  <div id='canvases' style="opacity: 0; transition: all 0.5s ease-in-out;">
+    <div class="over">
+
+      <a href="https://xstreet.io">
+        <h2>XSTREET</h2>
+      </a>
+      <a href="tg://resolve?domain=step_3d_bot">
+        <h2>STEP_3D</h2>
+      </a>
+    </div>
+    <!-- Canvas used by the hand tracker and displaying the video -->
+    <canvas id='handTrackerCanvas'></canvas>
+
+    <!-- Canvas displayed above, with the THREE.js scene -->
+    <canvas id='ARCanvas'></canvas>
+  </div>
+
+
+
+  <!-- INCLUDE WEBARROCKSHAND SCRIPT -->
+  <script src="src/WebARRocksHand.js?123"></script>
+
+  <!-- THREE.JS - REPLACE IT BY three.min.js FOR PROD -->
+  <script src="src/three.min.js"></script>
+
+  <!-- THREE.JS HELPERS -->
+  <script src="src/GLTFLoader.js"></script>
+
+  <!-- WEBARROCKSHAND THREEJS VTO HELPER -->
+  <script src="src/HandTrackerThreeHelper.js?12"></script>
+
+  <!-- INCLUDE LANDMARKS STABILIZER -->
+  <script src="src/OneEuroLMStabilizer.js"></script>
+
+  <script src="main.js?43223543535245"></script>
+
+</body>
+
+</html>
